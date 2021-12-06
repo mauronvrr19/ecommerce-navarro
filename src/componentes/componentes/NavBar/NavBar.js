@@ -25,6 +25,7 @@ const NavBar =(props)=> {
 </svg> productos</a></li>
         </ul>
          
+        
        </nav>
   
 
