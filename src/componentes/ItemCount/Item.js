@@ -1,30 +1,15 @@
 import React from "react";
 import ReactDom from "react-dom";
+import ItemList from "./ItemList";
 
 
+const Item = props=>{
+    return(
+        <div>
+            <h3>{props.name}</h3>
+        </div>
+    )
 
-const Item = ()=>{
-    const items =
-[
-    {
-"title" : "placa madre",
-"price" : 50000 ,
-"id": "I7" ,
-"pictureurl": "#"
-},
-{
-    "title" : "placa madre",
-    "price" : 40000 ,
-    "id": "I3",
-    "pictureurl": "#" 
-},
-{
-    "title" : "placa madre",
-    "price" :  15000,
-    "id": "intel celeron",
-    "pictureurl": "#"
-},
-]
 }
 
 export default Item
