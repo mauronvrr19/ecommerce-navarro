@@ -1,4 +1,6 @@
 import React from "react";
+import ReactDom from "react-dom";
+
 import ItemCount from "./ItemCount/ItemCount";
 import Itemlist from "./ItemCount/ItemList";
 
@@ -37,7 +39,7 @@ const ItemListContainer = (props) =>
             <li> {props.nombre} 4</li>
         </ul>      
         <ItemCount stock={10} initial={1} onAdd={onAdd}/>
-        <Itemlist item={data}/>
+        <Itemlist data={data}/>
 
 </div>
     )
