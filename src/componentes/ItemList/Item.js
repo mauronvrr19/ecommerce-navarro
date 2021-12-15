@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
-import ItemList from "./ItemList";
-
+import Itemlist from "./ItemList";
 
 const Item = props =>{
     return(
@@ -9,10 +8,8 @@ const Item = props =>{
             <li>{props.title}</li>
             <li>{props.id}</li>
             <li>{props.price}</li>
-
         </ul>
     )
-
 }
 
 export default Item

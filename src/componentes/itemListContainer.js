@@ -1,13 +1,29 @@
-import React from "react";
 import ReactDom from "react-dom";
-
 import ItemCount from "./ItemCount/ItemCount";
-import Itemlist from "./ItemCount/ItemList";
+import Itemlist from "./ItemList/ItemList";
+import { useState, useEffect } from "react";
 
 const ItemListContainer = (props) =>
 {
     const onAdd = () => console.log("producto aniadido")
 
+    let [lista,setLista] = useState ([])
+
+            useEffect(()=>{
+            const promesa = new Promise ((res, rej)=>{
+                setTimeout(() => {
+                    res(data)
+                },2000 );
+            })
+promesa           
+.then((data)=>{
+    console.log("aprobado")
+    setLista (data)
+})
+.catch(()=>{
+    console.log("desaprobado")
+})
+            },[])
     const data =
 [
     {
@@ -31,17 +47,10 @@ const ItemListContainer = (props) =>
 ]
 
     return(
-        <div>
-        <ul>
-            <li>{props.nombre} 1</li>
-            <li> {props.nombre} 2 </li>
-            <li> {props.nombre} 3</li>
-            <li> {props.nombre} 4</li>
-        </ul>      
-        <ItemCount stock={10} initial={1} onAdd={onAdd}/>
-        <Itemlist data={data}/>
-
-</div>
+        <div>    
+           <ItemCount stock={10} initial={1} onAdd={onAdd}/>
+           <Itemlist data={data}/>
+       </div>
     )
 
 }

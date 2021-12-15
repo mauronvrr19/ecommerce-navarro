@@ -7,8 +7,7 @@ import ItemCount from "./componentes/ItemCount/ItemCount"
 function Rc () {
     return <>
     <NavBar nombre={"E-Commerce"}/>
-    <ItemListContainer nombre={"articulo"}/>
-
+    <ItemListContainer/>
     </>
 }
 

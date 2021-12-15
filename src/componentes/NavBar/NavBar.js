@@ -1,7 +1,7 @@
 import React from "react";
 import CartWidget from "./CartWidget"
 import ItemListContainer from "../ItemListContainer";
-import Item from "../ItemCount/Item";
+import Item from "../ItemList/Item";
 
 const NavBar =(props)=> {
 

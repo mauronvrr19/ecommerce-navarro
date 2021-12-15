@@ -33,7 +33,6 @@ const confirmar =()=>{
 <p>Contador Actual : {contador}</p>
   <button onClick={quitar} type="button" className="btn btn-primary">quitar</button>
   <button onClick={confirmar} type="button" className="btn btn-primary">confirmar</button>
-
   <button onClick={agregar} type="button" className="btn btn-primary">agregar</button>
 </div>
     )
