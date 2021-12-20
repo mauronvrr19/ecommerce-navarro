@@ -1,13 +1,17 @@
 import React from "react";
-import ReactDom from "react-dom";
-import ItemListContainer from "../ItemListContainer";
 import Item from "./Item";
 
- const Itemlist = props => {
-     return (
-         <div>
-             {props.data.map(item =>(<Item id={item.id} title={item.title} price={item.price}/>))}
-         </div>
-     )
- }
-export default Itemlist
+const Itemlist = (props) => {
+  const { data } = props;
+
+  console.log(data);
+
+  return (
+    <div>
+      {data.map((item, index) => (
+        <Item id={item.id} title={item.title} price={item.price} key={index} />
+      ))}
+    </div>
+  );
+};
+export default Itemlist;

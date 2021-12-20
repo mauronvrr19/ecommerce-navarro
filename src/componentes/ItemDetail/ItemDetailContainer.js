@@ -1,42 +1,38 @@
-import react from "react";
 import { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
-import ItemCount from "../ItemCount/ItemCount";
 
-const ItemDetailContainer = () => {
 
-    const onAdd = () => console.log("producto aniadido")
+const ItemDetailContainer = (props) => {
+
 
     let [unidad,setUnidad] = useState ([])
 
             useEffect(()=>{
             const promesa = new Promise ((res, rej)=>{
                 setTimeout(() => {
-                    res(data)
+                    res(producto)
                 },2000 );
             })
 promesa           
-.then((data)=>{
-    console.log("aprobado")
-    setUnidad (data)
+.then((producto)=>{
+    console.log("+")
+    setUnidad (producto)
 })
 .catch(()=>{
-    console.log("desaprobado")
+    console.log("-")
 })
             },[])
 
-
-    const producto =
-[
-    {
-"title" : "placa madre",
-"price" : 50000 ,
-"id": "I7" ,
-"pictureurl": "#"
-}]
+            const producto =
+            [
+                {
+            "title" : "placa madre",
+            "price" : 50000 ,
+            "id": "I7" ,
+            "pictureurl": "#"
+            }]
 return(
     <div>    
-       <ItemCount stock={4} initial={1} onAdd={onAdd}/>
        <ItemDetail producto={producto}/>
    </div>
 )

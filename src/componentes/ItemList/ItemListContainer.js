@@ -1,11 +1,11 @@
-import ReactDom from "react-dom";
-import ItemCount from "./ItemCount/ItemCount";
-import Itemlist from "./ItemList/ItemList";
+import ItemCount from "../ItemCount/ItemCount";
+import Itemlist from "./ItemList";
 import { useState, useEffect } from "react";
+
 
 const ItemListContainer = (props) =>
 {
-    const onAdd = () => console.log("producto aniadido")
+    const onAdd = () => console.log("producto anidado")
 
     let [lista,setLista] = useState ([])
 
