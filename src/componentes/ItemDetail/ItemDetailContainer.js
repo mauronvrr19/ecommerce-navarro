@@ -1,9 +1,18 @@
 import { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
 
+const producto =
+[
+    {
+"title" : "placa madre",
+"price" : 50000 ,
+"id": "I7" ,
+"pictureurl": "#"
+}]
 
 const ItemDetailContainer = (props) => {
 
+    const onAdd = () => console.log("producto anidado")
 
     let [unidad,setUnidad] = useState ([])
 
@@ -23,14 +32,7 @@ promesa
 })
             },[])
 
-            const producto =
-            [
-                {
-            "title" : "placa madre",
-            "price" : 50000 ,
-            "id": "I7" ,
-            "pictureurl": "#"
-            }]
+        
 return(
     <div>    
        <ItemDetail producto={producto}/>

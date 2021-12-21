@@ -5,7 +5,8 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Carrito from "./componentes/Carrito";
 import Home from "./componentes/Home";
 import "./Rc.css"
-// import ItemDetailContainer from "./componentes/itemdetail/ItemDetailContainer";
+import ItemDetailContainer from "./componentes/ItemDetail/ItemDetailContainer";
+
 
 function Rc () {
     return <>
@@ -15,7 +16,7 @@ function Rc () {
                 <Route path="/Home" element={<Home/>} />
                 <Route path="/carrito" element={<Carrito/>} />
                 <Route path="/Itemlistcontainer" element={<ItemListContainer/>} />
-                {/* <Route path="/ItemDetailContainer" element={<ItemDetailContainer/>} /> */}
+                <Route path="/ItemDetailContainer" element={<ItemDetailContainer/>} />
 
             </Routes>
     </BrowserRouter>
