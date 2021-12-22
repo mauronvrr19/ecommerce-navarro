@@ -35,7 +35,7 @@ promesa
         
 return(
     <div>    
-       <ItemDetail producto={producto}/>
+       <ItemDetail producto={unidad}/>
    </div>
 )
 

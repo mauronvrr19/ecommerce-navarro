@@ -6,6 +6,7 @@ const Item = (props) => {
       <li>{props.title}</li>
       <li>{props.id}</li>
       <li>{props.price}</li>
+      <button>ver detalles</button>
     </ul>
   );
 };
