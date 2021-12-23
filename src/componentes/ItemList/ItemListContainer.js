@@ -1,25 +1,26 @@
 import ItemCount from "../ItemCount/ItemCount";
 import Itemlist from "./ItemList";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom"
 
 const data =
 [
     {
 "title" : "placa madre",
 "price" : 50000 ,
-"id": "I7" ,
+"id": 1 ,
 "pictureurl": "#"
 },
 {
     "title" : "placa madre",
     "price" : 40000 ,
-    "id": "I3",
+    "id": 2,
     "pictureurl": "#" 
 },
 {
     "title" : "placa madre",
-    "price" :  15000,
-    "id": "intel celeron",
+    "price" :  30000,
+    "id": 3,
     "pictureurl": "#"
 },
 ]
@@ -28,6 +29,8 @@ const data =
 const ItemListContainer = (props) =>
 {
     const onAdd = () => console.log("producto anidado")
+    const { id } = useParams()
+
 
     let [lista,setLista] = useState ([])
 
@@ -45,7 +48,7 @@ promesa
 .catch(()=>{
     console.log("desaprobado")
 })
-            },[])
+            },[id])
     
     return(
         <div>    
