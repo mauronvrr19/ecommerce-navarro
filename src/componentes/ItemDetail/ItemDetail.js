@@ -1,10 +1,11 @@
 import React from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import { useState, useEffect } from "react";
-import {BrowserRouter, Routes, Route} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const ItemDetail = (props)=> {
- 
+  const { producto } = props;
+
 const [ocultar, setOcultar] = useState(true)
 const [cantidad, setCantidad] = useState(0)
 
@@ -31,7 +32,7 @@ if(ocultar) {
        <h3>Nombre: {props.title}</h3>
       <h3>codigo: {props.id}</h3>
       <h3>Precio: ${props.price}</h3>
-      {/* <Link to={`/carrito`}><button variant="primary">Terminar Comprar</button></Link> */}
+      <Link to={`/carrito`}><button variant="primary">Terminar Comprar</button></Link>
          </div>
   )}}
 

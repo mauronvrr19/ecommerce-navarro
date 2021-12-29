@@ -15,8 +15,8 @@ function Rc () {
 
     const links = [
         { href: "/productos", name: "productos", id: 1 },
-        { href: "/categoria/1", name: "placa madre", id: 2 },
-        { href: "/categoria/2", name: "micro", id: 3 },
+        // { href: "/categoria/1", name: "placa madre", id: 2 },
+        // { href: "/categoria/2", name: "micro", id: 3 },
         { href: "/", name: "home", id: 4},
 
     ]
