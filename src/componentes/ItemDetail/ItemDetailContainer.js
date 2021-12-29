@@ -2,15 +2,24 @@ import { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom"
 
-const producto =
-[
+const producto = [
     {
-"title" : "marca de placa:",
-"price" : "precio : $" ,
-"id": "procesador" ,
-"pictureurl": "imagen ilustrativa"}
-]
+        title : "placa madre",
+        price : 50000 ,
+        pictureurl: "#"
+        },
+        {               id: 2,
 
+            title : "micros",
+            price : 40000 ,
+            pictureurl: "#" 
+        },
+        {
+            title : "memoria",
+            price :  30000,
+            id: 3,
+            pictureurl: "#"
+        }]
 const ItemDetailContainer = (props) => {
 
     const onAdd = () => console.log("producto anidado")
@@ -22,6 +31,8 @@ const ItemDetailContainer = (props) => {
             const promesa = new Promise ((res, rej)=>{
                 setTimeout(() => {
                     res(producto)
+                  return producto.filter(productos=>productos.id==id)
+
                 },2000 );
             })
 promesa           
@@ -37,11 +48,12 @@ promesa
         
 return(
     <div>    
-       <ItemDetail producto={unidad}/>
+       <ItemDetail producto={producto}/>
    </div>
 )
 
 }
+
 
 
 export default ItemDetailContainer

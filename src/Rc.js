@@ -9,22 +9,27 @@ import ItemDetailContainer from "./componentes/ItemDetail/ItemDetailContainer";
 
 
 const links = [
-    { href: "/home", name: "home", id: 1 },
-    { href: "/carrito", name: "carrito", id: 2 },
-    { href: "/ItemListContainer", name: "catalogo", id: 3 },
-    { href: "/ItemDetailContainer", name: "detalles del producto", id: 4  }
+    { href: "/productos", nombre: "Productos", id: 3 },
+    { href: "/ItemListContainer/categoria/1", nombre: "placa nadre", id: 1 },
+    { href: "/categoria/2", nombre: "micros", id: 2 },
 ]
 function Rc () {
     return <>
     <BrowserRouter>
-    <NavBar nombre={"E-Commerce"}/>
+              <NavBar nombre={"E-Commerce"} links={links}/>
             <Routes>
-                <Route path="/Home" element={<Home/>} />
+                {/* <Route path="/Home" element={<Home/>} />
                 <Route path="/carrito" element={<Carrito/>} />
                 <Route path="/ItemDetailContainer" element={<ItemDetailContainer/>} />
-                <Route path="/Itemlistcontainer" element={<ItemListContainer/>} />
-                <Route path="/ItemDetailContainer/:id" element={<ItemDetailContainer/>} />
-
+                <Route path="/Itemlistcontainer/" element={<ItemListContainer/>} />
+                <Route path="/ItemDetailContainer/:id" element={<ItemDetailContainer/>} /> */}
+                
+                <Route path="/Home" element={<Home/>}/>
+                <Route path="/" element={<ItemListContainer/>}/>
+                <Route path="/carrito" element={<Carrito/>}/>
+                <Route path="/Itemlistcontainer/" element={<ItemListContainer/>}/>
+                <Route path="/categoria/:id" element={<ItemListContainer/>}/>
+                <Route path="/productos/:id" element={<ItemDetailContainer/>}/>
             </Routes>
     </BrowserRouter>
     </>

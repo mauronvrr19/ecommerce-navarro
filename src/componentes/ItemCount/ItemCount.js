@@ -23,7 +23,11 @@ console.log("stock maximo")
  }
     }
 const confirmar =()=>{
-    onAdd()
+    if (contador > 0){
+    onAdd()}
+    else {
+        console.log("no seleccionaste ningun producto")
+    }
 }
 
     return (

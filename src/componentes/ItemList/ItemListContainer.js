@@ -4,26 +4,25 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"
 
 const data =
-[
+ [
     {
-"title" : "placa madre",
-"price" : 50000 ,
-"id": 1 ,
-"pictureurl": "#"
-},
-{
-    "title" : "placa madre",
-    "price" : 40000 ,
-    "id": 2,
-    "pictureurl": "#" 
-},
-{
-    "title" : "placa madre",
-    "price" :  30000,
-    "id": 3,
-    "pictureurl": "#"
-},
-]
+        title : "placa madre",
+        price : 50000 ,
+        id: 1 ,
+        pictureurl: "#"
+        },
+        {
+            title : "micros",
+            price : 40000 ,
+            id: 2,
+            pictureurl: "#" 
+        },
+        {
+            title : "memoria",
+            price :  30000,
+            id: 3,
+            pictureurl: "#"
+        }]
 
 
 const ItemListContainer = (props) =>
@@ -38,7 +37,11 @@ const ItemListContainer = (props) =>
             const promesa = new Promise ((res, rej)=>{
                 setTimeout(() => {
                     res(data)
-                },2000 );
+                    if (id) {
+                        return data.filter(dat=>dat.categoria==id)
+                      }else{
+                        return data
+                      }},2000 );
             })
 promesa           
 .then((data)=>{
@@ -52,13 +55,13 @@ promesa
     
     return(
         <div>    
-           {/* <ItemCount stock={10} initial={1} onAdd={onAdd}/> */}
-           <Itemlist data={lista}/>
+           <Itemlist data={lista}/>  
        </div>
     )
 
-}
 
+
+}
 
 
 export default ItemListContainer

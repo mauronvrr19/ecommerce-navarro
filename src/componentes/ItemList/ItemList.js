@@ -11,6 +11,7 @@ const Itemlist = (props) => {
       {data.map((item, index) => (
         <Item id={item.id} title={item.title} price={item.price} key={index} />
       ))}
+      
     </div>
   );
 };
