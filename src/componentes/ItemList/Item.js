@@ -10,7 +10,7 @@ const Item = (props) => {
       <li>{props.title}</li>
       <li>{props.id}</li>
       <li>{props.price}</li>
-      <Link to={`/ItemDetailContainer/${props.title}`}>ver detalle</Link>
+      <Link to={`/ItemDetailContainer/${props.id}`}>ver detalle</Link>
     </ul>
   );
 };

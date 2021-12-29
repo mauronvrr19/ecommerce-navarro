@@ -1,31 +1,39 @@
 import React from "react";
 import ItemCount from "../ItemCount/ItemCount";
-
+import { useState, useEffect } from "react";
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 
 const ItemDetail = (props)=> {
-    const { producto } = props;
+ 
+const [ocultar, setOcultar] = useState(true)
+const [cantidad, setCantidad] = useState(0)
 
-console.log(props)
-const onAdd = () => console.log("producto anidado")
+const onAdd = (contador) => {
+console.log("Contador");
+setOcultar(false);
+setCantidad(contador);
+}
 
-if (producto.length > 0){
-        return (
-          <ul>
-          <li>{producto.title}</li>
-          <li>{producto.id}</li>
-          <li>{producto.price}</li>
+if(ocultar) {
 
-          <ItemCount stock={10} initial={1} onAdd={onAdd}/>
-
-        </ul>
-        )}
-        else {
-          return (
-            <span>cargando</span>
-          )
-      }
-    }
-
+  return (
+    <div>
+      <h3>Nombre: {props.title}</h3>
+      <h3>codigo: {props.id}</h3>
+      <h3>Precio: ${props.price}</h3>
+      <ItemCount stock={10} initial={0}  onAdd={onAdd}
+      />
+    </div>
+  );
+} else {
+  return (
+    <div>
+       <h3>Nombre: {props.title}</h3>
+      <h3>codigo: {props.id}</h3>
+      <h3>Precio: ${props.price}</h3>
+      {/* <Link to={`/carrito`}><button variant="primary">Terminar Comprar</button></Link> */}
+         </div>
+  )}}
 
   
 

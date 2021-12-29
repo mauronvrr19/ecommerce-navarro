@@ -5,18 +5,17 @@ import { useParams } from "react-router-dom"
 const producto = [
     {
         title : "placa madre",
-        price : 50000 ,
+        price : 500 ,
         pictureurl: "#"
         },
-        {               id: 2,
-
+        {     id: 2,
             title : "micros",
-            price : 40000 ,
+            price : 400 ,
             pictureurl: "#" 
         },
         {
             title : "memoria",
-            price :  30000,
+            price :  300,
             id: 3,
             pictureurl: "#"
         }]
@@ -43,7 +42,7 @@ promesa
 .catch(()=>{
     console.log("-")
 })
-            },[])
+            },[id])
 
         
 return(
