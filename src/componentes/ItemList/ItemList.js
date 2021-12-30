@@ -9,7 +9,7 @@ const Itemlist = (props) => {
   return (
     <div>
       {data.map((item, index) => (
-        <Item id={item.id} title={item.title} price={item.price} key={index} />
+        <Item id={item.id} title={item.title} price={item.price} key={index} pictureurl={item.pictureurl}/>
       ))}
       
     </div>

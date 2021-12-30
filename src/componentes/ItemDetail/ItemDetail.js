@@ -25,10 +25,13 @@ const ItemDetail = ({ unidad }) => {
       {unidad.map((u) => {
         return (
           <>
-            <h3>Nombre: {u.title}</h3>
+            <h3>detalle: {u.title}</h3>
             <h3>codigo: {u.id}</h3>
-            <h3>Precio: {u.price}</h3>
-            <ItemCount stock={10} initial={0} onAdd={onAdd} />
+            <h3>Precio: ${u.price}</h3>
+            <img className="imgdetail" src={u.pictureurl} alt="combo" />
+            <div>
+            <ItemCount  stock={10} initial={0} onAdd={onAdd} />
+            </div>
           </>
         );
       })}
@@ -43,7 +46,10 @@ else {
             <h3>Nombre: {u.title}</h3>
             <h3>codigo: {u.id}</h3>
             <h3>Precio: {u.price}</h3>
+            <img className="imgdetail" src={u.pictureurl} alt="combo" />
+            <div>
            <Link to={`/carrito`}><button variant="primary">Terminar Comprar</button></Link>
+           </div>
           </>
         );
       })}

@@ -1,4 +1,3 @@
-import ItemCount from "../ItemCount/ItemCount";
 import Itemlist from "./ItemList";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"
@@ -6,23 +5,30 @@ import { useParams } from "react-router-dom"
 const data =
  [
     {
-        title : "placa madre",
-        price : 50000 ,
+        title : "combo 1",
+        price : 100000 ,
         id: 1 ,
-        pictureurl: "#"
-        },
+        pictureurl: "/imagen.png",
+    },
         {
-            title : "micros",
-            price : 40000 ,
+            title : "combo 2",
+            price :  140000 ,
             id: 2,
-            pictureurl: "#" 
+            pictureurl: "/imagen.png" 
         },
         {
-            title : "memoria",
-            price :  30000,
+            title : "combo 3",
+            price :  150000,
             id: 3,
-            pictureurl: "#"
-        }]
+            pictureurl: "/imagen.png" 
+        },
+        {
+            title : "combo 4",
+            price :  200000,
+            id: 4,
+            pictureurl: "/imagen.png" 
+        },
+    ]
 
 
 const ItemListContainer = (props) =>

@@ -29,3 +29,37 @@
     height: 30px;
     text-align: center;
  }
+
+ .productos {
+   display: inline-flex;
+   padding: 10px;
+
+ }
+
+ .productos ul {
+   border: 3px solid black;
+   text-align: center;
+   width: 150px;
+   background-color: cornflowerblue;
+margin: 40px;
+ }
+
+ .boton-producto {
+   color: black;
+   border: 1px solid black;
+ }
+
+.imgdetail {
+  width: 400px;
+  height: 400px;
+}
+
+.imgcontainer {
+  width: 250px;
+  height: 250px; 
+}
+
+.boton-Item 
+{
+  margin: 1000px;
+}

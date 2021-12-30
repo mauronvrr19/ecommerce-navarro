@@ -30,7 +30,7 @@ console.log("stock maximo")
     }
     
 const confirmar =()=>{
-    if(contador <= stock){
+    if(contador <= stock & contador > 0){
         setContador(initial);
         onAdd(contador);
     }
