@@ -1,41 +1,53 @@
+
+
 import React from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Carrito from "../Carrito";
 
-const ItemDetail = (props)=> {
-  const { producto } = props;
+const ItemDetail = ({ unidad }) => {
+  const [ocultar, setOcultar] = useState(true);
+  const [cantidad, setCantidad] = useState(0);
 
-const [ocultar, setOcultar] = useState(true)
-const [cantidad, setCantidad] = useState(0)
+  console.log(unidad);
 
-const onAdd = (contador) => {
-console.log("Contador");
-setOcultar(false);
-setCantidad(contador);
-}
+  const onAdd = (contador) => {
+    setOcultar(false);
+    setCantidad(contador);
+    console.log(contador)
+  };
 
-if(ocultar) {
+  if (ocultar) {
 
   return (
     <div>
-      <h3>Nombre: {props.title}</h3>
-      <h3>codigo: {props.id}</h3>
-      <h3>Precio: ${props.price}</h3>
-      <ItemCount stock={10} initial={0}  onAdd={onAdd}
-      />
+      {unidad.map((u) => {
+        return (
+          <>
+            <h3>Nombre: {u.title}</h3>
+            <h3>codigo: {u.id}</h3>
+            <h3>Precio: {u.price}</h3>
+            <ItemCount stock={10} initial={0} onAdd={onAdd} />
+          </>
+        );
+      })}
     </div>
-  );
-} else {
+  )}
+else {
   return (
     <div>
-       <h3>Nombre: {props.title}</h3>
-      <h3>codigo: {props.id}</h3>
-      <h3>Precio: ${props.price}</h3>
-      <Link to={`/carrito`}><button variant="primary">Terminar Comprar</button></Link>
-         </div>
+      {unidad.map((u) => {
+        return (
+          <>
+            <h3>Nombre: {u.title}</h3>
+            <h3>codigo: {u.id}</h3>
+            <h3>Precio: {u.price}</h3>
+           <Link to={`/carrito`}><button variant="primary">Terminar Comprar</button></Link>
+          </>
+        );
+      })}
+    </div>
   )}}
-
-  
-
-export default ItemDetail
+    
+  export default ItemDetail;
