@@ -6,8 +6,8 @@ import Carrito from "./componentes/Carrito";
 import Home from "./componentes/Home";
 import "./Rc.css"
 import ItemDetailContainer from "./componentes/ItemDetail/ItemDetailContainer";
-import { useState, useEffect } from "react";
-
+import { useState, useEffect, createContext } from 'react'
+import CustomProvider from "./componentes/CartContext"; 
 
 
 function Rc () {
@@ -20,6 +20,7 @@ function Rc () {
     ]
     
     return (<>
+    <CustomProvider>
     <BrowserRouter>
               <NavBar  links={links}/>
               <Routes>
@@ -30,6 +31,7 @@ function Rc () {
                     <Route path="/producto/:id" element={<ItemDetailContainer />} />
                 </Routes>
     </BrowserRouter>
+    </CustomProvider>
     </>)
 }
 

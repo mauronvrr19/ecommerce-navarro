@@ -29,6 +29,7 @@ const producto = [
   },
 ];
 const ItemDetailContainer = (props) => {
+  
   const onAdd = () => console.log("producto anidado");
   const { id } = useParams();
 
