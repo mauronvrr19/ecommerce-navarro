@@ -28,16 +28,32 @@ const CustomProvider = ({children}) => {
         setCarrito(copia) 
 
         console.log(contador  + " el  contador  funciona ")
-        /* if(isInCarrito()){
-            
-        }else{
-        } */
+     
+
+        const precio_total = () => {
+            let total = 0;
+            carrito.forEach((item) => (total += item.price * item.contador));
+            return total;
+            console.log(precio_total)
+          };
     }
 
+
     const borrarDelCarrito = (id) => {
-      
-        // setCarrito(estadoArray.map())
-    }
+
+        const copia_carrito = {...carrito}
+
+        carrito.filter  ((item) => {
+if (item.id !==id && item.contador >1 ){
+    item.contador --
+    console.log(item.contador)
+    setCarrito (copia_carrito)
+    setcontadorTotal(contador_total - item.contador)
+} else {
+console.log ("no hay productos")
+setCarrito ([])
+setcontadorTotal(0)
+}})}
 
     const limpiarCarrito = () => {  setCarrito([])  }
 
