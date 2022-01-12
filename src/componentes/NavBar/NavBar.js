@@ -1,8 +1,11 @@
 import React from "react";
 import CartWidget from "./CartWidget"
 import {Link, NavLink} from "react-router-dom"
+import  { useContexto }  from "../CartContext";
 
 const NavBar =({ links})=> {
+    
+    const { cantidad_total } = useContexto()
 
     return (
        

@@ -1,7 +1,7 @@
 import Itemlist from "./ItemList";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"
-
+import { db } from "../../firebase";
 const data =
  [
     {
