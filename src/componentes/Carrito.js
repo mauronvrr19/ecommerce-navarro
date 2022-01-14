@@ -45,6 +45,8 @@ return (
                         <li key={indice}>
                             {unidad.title} - ${unidad.price}
                             <button onClick={()=>borrarDelCarrito(unidad.id,unidad.contador)}>borrar</button>
+                            <button onClick={limpiarCarrito} >limpiar</button>
+
                         </li>
                     )
                 })}
