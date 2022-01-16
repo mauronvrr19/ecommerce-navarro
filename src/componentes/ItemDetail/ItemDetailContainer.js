@@ -33,19 +33,17 @@ const ItemDetailContainer = (props) => {
   const onAdd = () => console.log("producto anidado");
   const { id } = useParams();
 
-  let [unidad, setUnidad] = useState([]);
+  let [unidad, setUnidad] = useState({});
 
   useEffect(() => {
     const promesa = new Promise((res, rej) => {
       setTimeout(() => {
-        res(producto);
-      }, 2000);
+        res(producto.find((item) => item.id == id));
+      });
     });
     promesa
       .then((producto) => {
-        let filterProduct = producto.filter((prod) => prod.id === parseInt(id));
-        console.log(filterProduct);
-        setUnidad(filterProduct);
+        setUnidad(producto);
       })
       .catch(() => {
         console.log("-");
