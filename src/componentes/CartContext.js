@@ -43,6 +43,14 @@ const CustomProvider = ({children}) => {
 
         }
          
+        const totalAPagar = () => {
+            let total = 0;
+          //Hacemos un forEach del carrito
+            carrito.forEach((item) => (total += item.item.precio * item.contador_total));
+          //Retornamos el total => esta funcion tenes que llamarta ( asi: totalAPagar() ) en la funcion de borrar prod para que se actualice el precio
+          //A su vez, esta funcion la recuperas directamente en Carrito.js en la parte de total
+            return total;
+           };
          
         const borrarDelCarrito = (id, contador, price) => {
             let copiaCarrito =carrito.filter(obj=> obj.id !== id)     
@@ -65,7 +73,7 @@ const CustomProvider = ({children}) => {
     const valorDelContexto = {
         contador_total , 
         carrito , 
-        precio_total,
+        totalAPagar,
         agregarAlCarrito , 
         borrarDelCarrito ,
         limpiarCarrito, 

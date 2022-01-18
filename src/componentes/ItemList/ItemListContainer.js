@@ -2,6 +2,8 @@ import Itemlist from "./ItemList";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"
 import { db } from "../../firebase";
+import { getDocs, query, collection , where } from "firebase/firestore"
+
 const data =
  [
     {
@@ -33,31 +35,39 @@ const data =
 
 const ItemListContainer = (props) =>
 {
-    const onAdd = () => console.log("producto anidado")
     const { id } = useParams()
 
 
     let [lista,setLista] = useState ([])
 
-            useEffect(()=>{
-            const promesa = new Promise ((res, rej)=>{
-                setTimeout(() => {
-                    res(data)
-                    if (id) {
-                        return data.filter(dat=>dat.categoria==id)
-                      }else{
-                        return data
-                      }},2000 );
-            })
-promesa           
-.then((data)=>{
-    console.log("aprobado")
-    setLista (data)
-})
-.catch(()=>{
-    console.log("desaprobado")
-})
-            },[id])
+    useEffect(() => {
+
+        const productosCollection = collection(db, "data")
+
+        //pedirProductos()
+
+        if (id) {
+
+            const consulta = query(productosCollection,where("data","==",id),where("price",">",100))
+            /* await */ getDocs(consulta)
+                .then(({ docs }) => {
+                    setLista(docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+
+        } else {
+
+            getDocs(productosCollection)
+                .then(({ docs }) => {
+                    setLista(docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        }    }, [id])
+
     
     return(
         <div>    

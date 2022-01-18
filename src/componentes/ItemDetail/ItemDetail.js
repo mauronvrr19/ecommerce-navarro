@@ -3,7 +3,6 @@ import ItemCount from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import  { useContexto }  from "../CartContext";
-import Carrito from "../Carrito";
 
 const ItemDetail = ({ unidad }) => {
   const [ocultar, setOcultar] = useState(true);
@@ -23,10 +22,10 @@ const ItemDetail = ({ unidad }) => {
   return (
     <div>
           <>
-            <h3>detalle: {unidad.title}</h3>
+            <h3>detalle: {unidad.detail}</h3>
             <h3>codigo: {unidad.id}</h3>
             <h3>Precio: ${unidad.price}</h3>
-            <img className="imgdetail" src={unidad.pictureurl} alt="combo" />
+            <img className="imgdetail" src={unidad.url} alt="combo" />
             <div>
             <ItemCount  stock={10} initial={0} onAdd={onAdd} />
             </div>
@@ -40,7 +39,7 @@ else {
             <h3>Nombre: {unidad.title}</h3>
             <h3>codigo: {unidad.id}</h3>
             <h3>Precio: {unidad.price}</h3>
-            <img className="imgdetail" src={unidad.pictureurl} alt="combo" />
+            <img className="imgdetail" src={unidad.url} alt="combo" />
             <div>
            <Link to={`/carrito`}><button variant="primary">ir a carrito</button></Link>
            </div>

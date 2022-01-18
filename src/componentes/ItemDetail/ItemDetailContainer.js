@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
+import { db } from "../../firebase";
+import { collection, doc, getDoc } from "firebase/firestore";
+
 
 const producto = [
   {
@@ -28,27 +31,31 @@ const producto = [
     id: 4,
   },
 ];
+
+
+
 const ItemDetailContainer = (props) => {
   
-  const onAdd = () => console.log("producto anidado");
   const { id } = useParams();
 
   let [unidad, setUnidad] = useState({});
 
-  useEffect(() => {
-    const promesa = new Promise((res, rej) => {
-      setTimeout(() => {
-        res(producto.find((item) => item.id == id));
-      });
-    });
-    promesa
-      .then((producto) => {
-        setUnidad(producto);
-      })
-      .catch(() => {
-        console.log("-");
-      });
-  }, [id]);
+  useEffect(
+    () => {
+      const productosQuery = collection(db, "data");
+
+      const consulta = doc(productosQuery, id);
+
+      getDoc(consulta)
+        .then((resultado) => {
+          setUnidad({ id: id, ...resultado.data() });
+         })
+        .catch((error) => {
+          console.log(error);
+        });
+    },   [id]
+    );
+
 
   return (
     <div>

@@ -1,15 +1,32 @@
 
-
+import { addDoc, collection , serverTimestamp , updateDoc } from "firebase/firestore"
 import { Link } from "react-router-dom"
 import { useContexto } from "./CartContext"
+import { db } from "../firebase"
 
 const Carrito = () => {
-
     const { carrito, borrarDelCarrito, limpiarCarrito } = useContexto()
-    const finalizarCompra = () => {
+
+    const finalizarCompra = () => { 
         console.log("Guardando la compra en la db...")
-        limpiarCarrito()
+
+        const ventasCollection = collection(db, "ventas")
+        addDoc(ventasCollection,{
+            buyer : {
+                name : "mauro",
+                lastName : "navarro",
+                email : "mauronvrr19@gmail.com"
+            },
+            items : carrito ,
+            date : serverTimestamp(),
+            total : 100
+        })
+        .then((resultado)=>{
+            console.log(resultado)
+            limpiarCarrito()
+        })
     }
+
 return (
     <div>
 sus compras :
@@ -18,7 +35,7 @@ sus compras :
                 {carrito.map((unidad, indice) => {
                     return (
                         <li key={indice}>
-                            {unidad.title} - {unidad.contador} combos - ${unidad.price * unidad.contador} 
+                            {unidad.detail} - {unidad.contador} combos - ${unidad.price * unidad.contador}
                             <button onClick={()=>borrarDelCarrito(unidad.id, unidad.contador, unidad.price)}>borrar item</button>
                             <button onClick={limpiarCarrito} >limpiar</button>
                             
@@ -26,7 +43,7 @@ sus compras :
                     )
                 })}
             </ul>
-        ) : <p>No hay productos en el carrito</p>}
+        ) : <p>ya no hay productos</p>}
  <div>          <Link to={`/productos`}><button variant="primary">productos</button></Link>
  </div>
         <button onClick={finalizarCompra}>finalizar compra</button>
