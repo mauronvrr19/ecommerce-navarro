@@ -19,7 +19,7 @@ function Rc () {
 
     ]
     
-    return (<>
+    return (
     <CustomProvider>
     <BrowserRouter>
               <NavBar  links={links}/>
@@ -32,7 +32,7 @@ function Rc () {
                 </Routes>
     </BrowserRouter>
     </CustomProvider>
-    </>)
+    )
 }
 
 export default Rc

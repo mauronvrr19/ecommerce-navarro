@@ -4,12 +4,11 @@ import Item from "./Item";
 const Itemlist = (props) => {
   const { data } = props;
 
-  console.log(data);
 
   return (
     <div>
       {data.map((item, index) => (
-        <Item id={item.id} title={item.title} price={item.price} key={index} pictureurl={item.pictureurl}/>
+        <Item id={item.id} title={item.title} price={item.price} key={index} pictureurl={item.pictureurl} stock={item.stock}/>
       ))}
       
     </div>

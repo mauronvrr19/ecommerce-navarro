@@ -14,36 +14,39 @@ const ItemDetail = ({ unidad }) => {
   const onAdd = (contador) => {
     setOcultar(false);
     setCantidad(contador );
-    console.log(contador)
     agregarAlCarrito(contador,unidad)
   };
   if (ocultar) {
 
   return (
     <div>
-          <>
+      
             <h3>detalle: {unidad.detail}</h3>
-            <h3>codigo: {unidad.id}</h3>
+            <h3>codigo de descuento: {unidad.id}</h3>
             <h3>Precio: ${unidad.price}</h3>
+            <p> IMAGEN ILUSTRATIVA</p>
             <img className="imgdetail" src={unidad.url} alt="combo" />
             <div>
             <ItemCount  stock={10} initial={0} onAdd={onAdd} />
             </div>
-          </>
+  
     </div>
   )}
 else {
   return (
     <div>
-          <>
+        
             <h3>Nombre: {unidad.title}</h3>
             <h3>codigo: {unidad.id}</h3>
             <h3>Precio: {unidad.price}</h3>
             <img className="imgdetail" src={unidad.url} alt="combo" />
             <div>
            <Link to={`/carrito`}><button variant="primary">ir a carrito</button></Link>
+          <p>seguir comprando:
+           <Link to={`/productos`}><button variant="primary">productos</button></Link>
+           </p> 
            </div>
-          </>      
+          
     </div>
   )}}
     
